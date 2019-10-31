@@ -3,11 +3,9 @@ const _ = require('lodash')
 
 import repo from './repo.js'
 
-const history = repo.history()
-
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
 const getPlayerHistory = (playerId, side) =>
-    _(history)
+    _(repo.history)
         .flatten()
         .flatMap(h => h[side])
         .filter(h => h.player === playerId)
