@@ -1,0 +1,36 @@
+{
+    "corp": [
+        {"id": 1, "name": "An Architect's Brain"},
+        {"id": 2, "name": "Genesis Stronger Together"},
+        {"id": 3, "name": "Grail Foundry"},
+        {"id": 4, "name": "Sportsmetal NEXT"},
+        {"id": 5, "name": "Nisei Ambush"},
+        {"id": 6, "name": "Saraswati Traps"},
+        {"id": 7, "name": "The Palana Code"},
+        {"id": 8, "name": "Biotech Cloning"},
+        {"id": 9, "name": "News Tracer"},
+        {"id": 10, "name": "Spark Mad Men"},
+        {"id": 11, "name": "Acme JoyTag"},
+        {"id": 12, "name": "Jemison Constellation"},
+        {"id": 13, "name": "Meaty Builders"},
+        {"id": 14, "name": "Blue Barriers"},
+        {"id": 15, "name": "Ambitious Outfit"}
+    ],
+    "runner":[
+        {"id": 1, "name": "Caissa Reina"},
+        {"id": 2, "name": "Plague Null"},
+        {"id": 3, "name": "Eater Alice"},
+        {"id": 4, "name": "Omar's Old Tricks"},
+        {"id": 5, "name": "Los HQ Drill"},
+        {"id": 6, "name": "Khan Birdies"},
+        {"id": 7, "name": "Street Geist"},
+        {"id": 8, "name": "Central Leela"},
+        {"id": 9, "name": "Nasir's Workshop"},
+        {"id": 10, "name": "Chamelon Hayley"},
+        {"id": 11, "name": "Smokeflash"},
+        {"id": 12, "name": "Afro Akiko"},
+        {"id": 13, "name": "Deva Adam"},
+        {"id": 14, "name": "Apex: Toll the Hounds"},
+        {"id": 15, "name": "Sunny and the Rachelrabbit"}
+    ]
+}
