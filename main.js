@@ -8,7 +8,7 @@ const help = () => {
           create        | Create new round`)
 }
 
-const read = () => {
+const read = (repo, utils) => {
     const history = repo.history()
     const decks = repo.decks()
     const players = repo.players()
@@ -31,15 +31,15 @@ const read = () => {
     }
 }
 
-const create = () => {
-    utils.createNewRound()
+const create = (repo, utils) => {
+    utils.createNewRound(repo)
 }
 
 const command = process.argv[2]
 
 switch(command)
 {
-    case "read": read(); break;
-    case "create": create(); break;
+    case "read": read(repo, utils)(); break;
+    case "create": create(repo, utils); break;
     default: help();
 }

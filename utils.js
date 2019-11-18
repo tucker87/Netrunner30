@@ -1,15 +1,14 @@
 const fs = require('fs')
 const _ = require('lodash')
 
-import repo from './repo.js'
-
 const getRandomInt = max => Math.floor(Math.random() * Math.floor(max))
-const getPlayerHistory = (playerId, side) =>
-    _(repo.history)
+const getPlayerHistory = (history, playerId, side) =>
+    _(history)
         .flatten()
         .flatMap(h => h[side])
         .filter(h => h.player === playerId)
         .flatMap(h => h.deck)
+        .value()
 
 const isUnique = (newDeckId, playerDecks, round) => {
     const usedByPlayer = _.some(playerDecks, pd => pd === newDeckId)
@@ -18,15 +17,15 @@ const isUnique = (newDeckId, playerDecks, round) => {
     return !usedByPlayer && !usedInRound
 }
 
-const buildPickDeck = (newRound, decks, players) => (playerId, side) => {
-    const priorDecks = getPlayerHistory(playerId, side)
+const buildPickDeck = (history, newRound, decks, players) => (playerId, side) => {
+    const priorDecks = getPlayerHistory(history, playerId, side)
     let newDeckId = -1
     do {
-        newDeckId = getRandomInt(14) + 1
+        newDeckId = getRandomInt(decks[side].length) + 1
     } while(!isUnique(newDeckId, priorDecks, newRound[side]))
 
     const player = players.filter(p => p.id === playerId)[0]
-    const deck = decks[side][newDeckId]
+    const deck = _.find(decks[side], d => d.id === newDeckId)
     return {player, deck}
 }
 
@@ -51,7 +50,7 @@ const writeFullRound = round => {
     writeFullList(round.runner)
 }
 
-const createNewRound = () => 
+const createNewRound = repo => 
 {
     const decks = repo.decks();
     const players = repo.players();
@@ -59,7 +58,7 @@ const createNewRound = () =>
 
     const newRound = {corp: [], runner: []}
 
-    const pickDeck = buildPickDeck(newRound, decks, players)
+    const pickDeck = buildPickDeck(history, newRound, decks, players)
 
     players.forEach(p => {
         newRound.corp.push(pickDeck(p.id, "corp"))
@@ -81,5 +80,6 @@ const createNewRound = () =>
 export default {
     createNewRound,
     writeRound,
-    writeFullRound
+    writeFullRound,
+    buildPickDeck
 }

@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "r30": "node -r esm main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha '**/*.test.js' --require @babel/register"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +13,13 @@
   "dependencies": {
     "esm": "^3.2.25",
     "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "mocha": "^6.2.2"
   }
 }
