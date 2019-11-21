@@ -12,7 +12,9 @@ const getPlayerHistory = (history, playerId, side) =>
 
 const isUnique = (newDeckId, playerDecks, round) => {
     const usedByPlayer = _.some(playerDecks, pd => pd === newDeckId)
-    const usedInRound = _.some(round, r => r.deck === newDeckId)
+    const usedInRound = _.some(round, r => r.deck.id === newDeckId)
+    console.log(round)
+    console.log(newDeckId)
 
     return !usedByPlayer && !usedInRound
 }
