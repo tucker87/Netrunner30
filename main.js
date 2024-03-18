@@ -39,7 +39,7 @@ const command = process.argv[2]
 
 switch(command)
 {
-    case "read": read(repo, utils)(); break;
+    case "read": read(repo, utils); break;
     case "create": create(repo, utils); break;
     default: help();
 }
