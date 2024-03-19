@@ -7,4 +7,5 @@ The json files for players and decks need to be filled out to begin.
 `npm install`
 
 `npm run r30 create` will start a new Tourney
+
 `npm run r30 read [x]` will read the name/deck combos for the given round.
